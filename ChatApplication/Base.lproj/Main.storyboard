@@ -93,7 +93,10 @@
                             <outlet property="delegate" destination="gIh-kB-c8L" id="V1I-N7-NtU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="HGN-wo-4Ba"/>
+                    <navigationItem key="navigationItem" id="HGN-wo-4Ba">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="cyi-IV-5bi"/>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="hWs-tU-Qfo"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DZP-6D-amT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

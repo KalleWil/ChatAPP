@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5646669422244306002E6881 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5646669322244306002E6881 /* Settings.bundle */; };
 		569938002216F23B00412E7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569937FF2216F23B00412E7E /* AppDelegate.swift */; };
 		569938052216F23B00412E7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 569938032216F23B00412E7E /* Main.storyboard */; };
 		569938072216F23C00412E7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569938062216F23C00412E7E /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5646669322244306002E6881 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		569937FC2216F23B00412E7E /* ChatApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		569937FF2216F23B00412E7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		569938042216F23B00412E7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				56A9737E22243E5F003CD73C /* LoginViewController.swift */,
 				56A9737C22243CB7003CD73C /* MessagesTableViewController.swift */,
 				569938032216F23B00412E7E /* Main.storyboard */,
+				5646669322244306002E6881 /* Settings.bundle */,
 				569938062216F23C00412E7E /* Assets.xcassets */,
 				569938082216F23C00412E7E /* LaunchScreen.storyboard */,
 				5699380B2216F23C00412E7E /* Info.plist */,
@@ -232,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5646669422244306002E6881 /* Settings.bundle in Resources */,
 				5699380A2216F23C00412E7E /* LaunchScreen.storyboard in Resources */,
 				569938072216F23C00412E7E /* Assets.xcassets in Resources */,
 				569938052216F23B00412E7E /* Main.storyboard in Resources */,

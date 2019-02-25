@@ -23,6 +23,8 @@ class MessagesTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        
+        
         present(loginViewController, animated: true, completion: nil)
     }
     
