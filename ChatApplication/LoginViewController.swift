@@ -11,7 +11,16 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error?) {
+        
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+       
+    }
+    
     
     var dict : [String : AnyObject]!
 
@@ -22,45 +31,25 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         //Creating Facebook button
-        let loginButton = FBSDKLoginButton(readPermissions: [.publicProfile])
+        let loginButton = FBSDKLoginButton()
         loginButton.center = view.center
+        loginButton.readPermissions = ["email"]
+        self.view.addSubview(loginButton)
+        loginButton.delegate = self
         
-        view.addSubview(loginButton)
-        
-        //If the user is already logged in
-        if let accessToken = FBSDKAccessToken.current(){
-            getFBUserData()
-        }
         
     }
 
-    
-
-    //when login button clicked
-    @objc func loginButtonClicked() {
-        let loginManager = FBSDKLoginManager()
-        loginManager.logIn(readPermissions:[.publicProfile ], viewController: self) { loginResult in
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("User cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                self.getFBUserData()
+    func loginButtonData () {
+        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        graphRequest?.start(completionHandler: { (connection, result, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                print(result!)
             }
         }
-    }
-    
-    //function is fetching the user data
-    func getFBUserData(){
-        if((FBSDKAccessToken.current()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
-                if (error == nil){
-                    self.dict = result as? [String : AnyObject]
-                    print(result!)
-                    print(self.dict)
-                }
-            })
-        }
-    }
+
+    )}
+
 }

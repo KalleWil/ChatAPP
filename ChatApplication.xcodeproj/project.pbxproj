@@ -171,13 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 569938242216F23C00412E7E /* Build configuration list for PBXNativeTarget "ChatApplication" */;
 			buildPhases = (
-				40BDB4758E35CF38C78B34B2 /* [CP] Check Pods Manifest.lock */,
 				569937F82216F23B00412E7E /* Sources */,
 				569937F92216F23B00412E7E /* Frameworks */,
 				569937FA2216F23B00412E7E /* Resources */,
 				4B8D3967CA66415A837C56A0 /* [CP] Embed Pods Frameworks */,
 				CF36DA652233FBE500566B69 /* Embed Frameworks */,
-				CF36DA662233FBF400566B69 /* ShellScript */,
+				CF36DA662233FBF400566B69 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -296,28 +295,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		40BDB4758E35CF38C78B34B2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ChatApplication-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4B8D3967CA66415A837C56A0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,10 +322,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatApplication/Pods-ChatApplication-frameworks.sh\"\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
-		CF36DA662233FBF400566B69 /* ShellScript */ = {
+		CF36DA662233FBF400566B69 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -357,6 +335,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
