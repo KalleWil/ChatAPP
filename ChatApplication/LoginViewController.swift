@@ -9,9 +9,11 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Firebase
 
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
+    
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error?) {
         
@@ -23,7 +25,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     
     var dict : [String : AnyObject]!
-
+    
+    @IBAction func registerUser(_ sender: UIButton) {
+        performSegue(withIdentifier: "registerSegue", sender: self)
+    }
+    
     @IBAction func loginIn(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
