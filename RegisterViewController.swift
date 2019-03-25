@@ -19,7 +19,8 @@ class RegisterViewController: UIViewController {
         
         //ref.child("someID/firstname").setValue("Kalle")
     }
-    
 
-
+    @IBAction func cancelRegister(_ sender: UIButton) {
+        performSegue(withIdentifier: "cancelSegue", sender: self)
+    }
 }
