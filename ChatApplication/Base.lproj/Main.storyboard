@@ -118,6 +118,9 @@
                                             <rect key="frame" x="337" y="7" width="57" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Register"/>
+                                            <connections>
+                                                <action selector="registerUser:" destination="cb9-oC-RPv" eventType="touchUpInside" id="61a-1P-yCB"/>
+                                            </connections>
                                         </button>
                                     </barButtonItem>
                                 </items>
@@ -196,6 +199,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NbP-Kq-KE0"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordText" destination="dle-KA-ty2" id="bZQ-ED-IOH"/>
+                        <outlet property="emailText" destination="Ptl-tb-BMQ" id="Z1a-Gf-AMO"/>
+                        <outlet property="firstnameText" destination="6zG-Rq-xNk" id="fPP-wR-att"/>
+                        <outlet property="lastnameText" destination="Sk2-kX-REF" id="cSE-gI-NEj"/>
+                        <outlet property="passwordText" destination="RTO-FQ-JrN" id="xdY-qL-pze"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JC1-BN-eoj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xPR-H0-d0v" userLabel="Exit" sceneMemberID="exit"/>
@@ -254,6 +264,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NnB-Ih-Wf2"/>
+        <segue reference="e3G-5w-NE1"/>
     </inferredMetricsTieBreakers>
 </document>
