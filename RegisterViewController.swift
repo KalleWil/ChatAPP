@@ -13,6 +13,7 @@ import FirebaseDatabase
 class RegisterViewController: UIViewController {
 
     let ref = Database.database().reference()
+    var databaseHandle:DatabaseHandle?
     
     var username: String = ""
     var firstname: String = ""
@@ -20,15 +21,11 @@ class RegisterViewController: UIViewController {
     var email: String = ""
     var password: String = ""
     var confirmPassword: String = ""
+    var emailExists: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        
-        //ref.childByAutoId().setValue(["firstname":"Kalle2"])
-        
-        //ref.child("someID/firstname").setValue("Kalle")
     }
 
     @IBAction func cancelRegister(_ sender: UIButton) {
@@ -51,8 +48,23 @@ class RegisterViewController: UIViewController {
         print("Password: " + password)
         print("ConfirmPassword: " + confirmPassword)
         
-        if password == confirmPassword {
-            //ref.childByAutoId().setValue(["firstname":firstname])
+        databaseHandle = ref.child("users").observe(.value) { (snapshot) in
+            for childSnap in snapshot.children.allObjects{
+            let snap = childSnap as! DataSnapshot
+                self.databaseHandle = self.ref.child("users/" + snap.key + "/email/").observe(.value, with: { (emailSnapshot) in
+                    let emailCheck = emailSnapshot.value as? String
+                    if let actualEmail = emailCheck{
+                        if actualEmail == self.email{
+                            self.emailExists = true
+                            print("Email exists in database")
+                        }
+                    }
+                })
+            }
+        }
+        
+        if password == confirmPassword{
+            if emailExists == !true{
             
             let childID = self.ref
                 .child("users")
@@ -65,6 +77,10 @@ class RegisterViewController: UIViewController {
             ref.child("users/" + childIDkey + "/password").setValue(password)
             
             print("User created succesfully!")
+            }
+            else{
+                print("ERROR! - Email already exists")
+            }
         }
         else{
             print("ERROR! - Passwords dont match")
