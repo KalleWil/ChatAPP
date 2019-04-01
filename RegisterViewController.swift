@@ -21,7 +21,7 @@ class RegisterViewController: UIViewController {
     var email: String = ""
     var password: String = ""
     var confirmPassword: String = ""
-    var emailExists: Bool = false
+    var emailExists: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +33,29 @@ class RegisterViewController: UIViewController {
         performSegue(withIdentifier: "cancelSegue", sender: self)
         
     }
+    
+    func emailCheck() {
+        databaseHandle = ref.child("users").observe(.value) { (snapshot) in
+            for childSnap in snapshot.children.allObjects{
+                let snap = childSnap as! DataSnapshot
+                self.databaseHandle = self.ref.child("users/" + snap.key + "/email/").observe(.value, with: { (emailSnapshot) in
+                    let emailCheck = emailSnapshot.value as? String
+                    if let actualEmail = emailCheck{
+                        if actualEmail == self.email{
+                            self.emailExists = true
+                            print("Email exists in database")
+                        }
+                    }
+                })
+                
+            }
+        }
+        if emailExists == true{}
+        else{
+            emailExists = false
+        }
+    }
+    
     @IBAction func registerUser(_ sender: UIButton) {
         username = firstnameText.text! + lastnameText.text!
         firstname = firstnameText.text!
@@ -48,20 +71,7 @@ class RegisterViewController: UIViewController {
         print("Password: " + password)
         print("ConfirmPassword: " + confirmPassword)
         
-        databaseHandle = ref.child("users").observe(.value) { (snapshot) in
-            for childSnap in snapshot.children.allObjects{
-            let snap = childSnap as! DataSnapshot
-                self.databaseHandle = self.ref.child("users/" + snap.key + "/email/").observe(.value, with: { (emailSnapshot) in
-                    let emailCheck = emailSnapshot.value as? String
-                    if let actualEmail = emailCheck{
-                        if actualEmail == self.email{
-                            self.emailExists = true
-                            print("Email exists in database")
-                        }
-                    }
-                })
-            }
-        }
+        emailCheck()
         
         if password == confirmPassword{
             if emailExists == !true{
@@ -88,6 +98,8 @@ class RegisterViewController: UIViewController {
         
  
     }
+    
+    
     
     
     
