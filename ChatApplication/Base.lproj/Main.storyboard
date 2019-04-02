@@ -99,7 +99,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" id="DpP-LJ-yok">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="buN-TZ-wnt">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="buN-TZ-wnt">
                                             <rect key="frame" x="20" y="0.0" width="48" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Cancel"/>
@@ -122,6 +122,9 @@
                                                 <action selector="registerUser:" destination="cb9-oC-RPv" eventType="touchUpInside" id="61a-1P-yCB"/>
                                             </connections>
                                         </button>
+                                        <connections>
+                                            <segue destination="APO-Ai-gaG" kind="show" identifier="registerSegue" id="hBG-5C-bNs"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -264,6 +267,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NnB-Ih-Wf2"/>
+        <segue reference="hBG-5C-bNs"/>
     </inferredMetricsTieBreakers>
 </document>
